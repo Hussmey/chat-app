@@ -9,6 +9,8 @@ import { FormContainerComponent } from './features/auth/form-container/form-cont
 import { InviteButtonComponent } from './features/channels/invite-button/invite-button.component';
 import { NewChannelComponent } from './features/channels/new-channel/new-channel.component';
 import { ChatPageComponent } from './features/chat/chat-page/chat-page.component';
+import { AngularFireModule} from '@angular/fire/compat'
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,17 @@ import { ChatPageComponent } from './features/chat/chat-page/chat-page.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAdykC-lYM5Vwk7usn_tgKmEK9nF-RZTlE",
+      authDomain: "chat-app-104fc.firebaseapp.com",
+      projectId: "chat-app-104fc",
+      storageBucket: "chat-app-104fc.appspot.com",
+      messagingSenderId: "1010521603680",
+      appId: "1:1010521603680:web:d240ddcb6f7628d1abcd05",
+      measurementId: "G-N8NLFRE2F5"
+    }),
+    AngularFireModule
   ],
   providers: [],
   bootstrap: [AppComponent]
