@@ -6,17 +6,28 @@
 <div class="continer d-flex align-items-center d-flex justify-content-center">
   <div class="row col-8">
     <div class="card shadow-lg bg-body rounded background-div">
-      <div class="row d-flex flex-row-reverse">
+      <div class="row d-flex flex-row-reverse" *ngIf="!show">
+        <div class="col-sm-12 text-center d-flex justify-content-center">
+          <h3 class="text-title">تسجيل الدخول</h3>
+        </div>
         <div class="col-md-6 py-2 text-end">
           <p class="text-center">!! خير عليكم في دردشتك</p>
           <div class="d-flex justify-content-center">
             <img class="img-login" src="assets/img/login.png" alt="" />
           </div>
-          <a></a>
-          <p class="text-center">!! خير عليكم في دردشتك</p>
+
+          <p class="text-center">!! معندكش ايميل !! هي شن تستنى</p>
+          <div class="d-flex justify-content-center">
+            <a
+              class="text-decoration-underline"
+              role="button"
+              (click)="showDiv()"
+              >دير حساب جديد</a
+            >
+          </div>
         </div>
         <div class="col-md-6 div-form">
-          <form class="py-5 ps-3 text-end">
+          <form class="py-5 ps-3 pe-3 text-end">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label text-end"
                 >عنوان البريد الإلكتروني</label
@@ -45,6 +56,25 @@
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
+      </div>
+      <div class="row d-flex flex-row-reverse div-ifSow" *ngIf="show">
+        <div class="col-md-12 d-flex justify-content-center">
+          <div class="col-md-6 position-relative">
+            <img class="img-angry" src="assets/img/go.png" alt="" />
+
+            <div class="position-absolute top-50 end-0 translate-middle-y">
+              <button class="button-arounder" routerLink="/singup">
+                دير حساب جديد يلااااا
+              </button>
+              <div
+                class="d-flex justify-content-center d-flex align-items-center div-num"
+              >
+                <h1 class="mt-5">{{ counter }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center"></div>
       </div>
     </div>
   </div>
