@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./singin.component.css']
 })
 export class SinginComponent {
+  onButtonClick() {
+    console.log('Button clicked!');
+  }
 
 }
