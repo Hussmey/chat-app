@@ -27,11 +27,18 @@
           </div>
         </div>
         <div class="col-md-6 div-form">
-          <form class="py-5 ps-3 pe-3 text-end">
+          <form class="py-5 ps-3 pe-3 text-end" [formGroup]="formSingIn">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label text-end">
                 : إميلك ياطييييب / والا طيبة</label
               >
+              <div class="col12">
+                <span
+                  *ngIf="formSingIn.get('email')?.invalid && formSingIn.get('email')?.['touched']"
+                  class="text-danger px-2"
+                  >دخل ايميلك صح يادعوة</span
+                >
+              </div>
               <input
                 type="email"
                 class="form-control text-end input-css"
@@ -49,6 +56,13 @@
               <label for="exampleInputPassword1" class="form-label"
                 >الرقم السري</label
               >
+              <div class="col12">
+                <span
+                  *ngIf="formSingIn.get('password')?.invalid && formSingIn.get('password')?.['touched']"
+                  class="text-danger px-2"
+                  >لحظة لحظة تاكد من الرقم السري</span
+                >
+              </div>
               <input
                 type="password"
                 class="form-control text-end input-css"
@@ -57,12 +71,22 @@
               />
             </div>
             <div class="d-flex justify-content-end">
-              <a class="text-decoration-underline" role="button"
-                >? مريوح ونسيت الرقم السري
-              </a>
+              <button
+                class="btn-clas text-decoration-underline"
+                type="submit"
+                [disabled]="!formSingIn.get('email')!.valid"
+              >
+                ? مريوح ونسيت الرقم السري
+              </button>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">توكل هي</button>
+            <button
+              [disabled]="!formSingIn.valid"
+              type="submit"
+              class="btn btn-primary mt-3"
+            >
+              توكل هي
+            </button>
           </form>
         </div>
       </div>

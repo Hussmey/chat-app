@@ -18,8 +18,12 @@ export class SinginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formSingIn = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      password: this.fb.control('', [
+        Validators.required,
+        Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/),
+        
+      ]),
     });
     console.log('singin work')
     this.show = false;
