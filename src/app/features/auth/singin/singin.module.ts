@@ -4,6 +4,7 @@ import { SinginComponent } from './singin.component';
 import { RouterModule, Routes } from '@angular/router';
 
 
+
 const routes: Routes= [
   {
     path: '',
