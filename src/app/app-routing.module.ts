@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'singup',loadChildren:() => import('./features/auth/singup/singup.module')
     .then(m => m.SingupModule)
   }
+
+  // { path : '', pathMatch:'full', redirectTo: 'singin'},
+  // { path : 'singin',component:SinginComponent},
+  // { path : 'singup',component:SingupComponent}
 ];
 
 @NgModule({

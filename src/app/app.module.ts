@@ -28,8 +28,9 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp({}),
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
+ 
  
   ],
   providers: [],

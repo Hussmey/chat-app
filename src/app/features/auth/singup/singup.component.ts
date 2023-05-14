@@ -9,18 +9,20 @@ import { Router } from '@angular/router';
 })
 export class SingupComponent implements OnInit{
 
-  loginForm!: FormGroup;
+  formSingIn!: FormGroup;
 
   counter: number = 5;
   show = false;
-  constructor(private router: Router, private fb:FormBuilder) {
+  constructor(private router: Router,private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
+    this.formSingIn = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
+    console.log('singup work')
+    this.show = false;
   }
 
 private formsall(){

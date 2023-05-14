@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
 
 
@@ -7,12 +9,21 @@ import { Router } from '@angular/router';
   templateUrl: './singin.component.html',
   styleUrls: ['./singin.component.css']
 })
-export class SinginComponent {
-
+export class SinginComponent implements OnInit {
+  formSingIn!: FormGroup;
   counter: number = 5;
   show = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router,private fb: FormBuilder) {}
 
+
+  ngOnInit(): void {
+    this.formSingIn = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+    });
+    console.log('singin work')
+    this.show = false;
+  }
 
   showDiv() {
     this.show = true;
