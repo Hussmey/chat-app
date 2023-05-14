@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { Router } from '@angular/router';
 
 
@@ -10,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./singin.component.css']
 })
 export class SinginComponent implements OnInit {
+
   formSingIn!: FormGroup;
   counter: number = 5;
   show = false;
@@ -23,6 +23,7 @@ export class SinginComponent implements OnInit {
     });
     console.log('singin work')
     this.show = false;
+    // this.router.navigate(['/chat-all']);
   }
 
   showDiv() {

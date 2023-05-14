@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SinginComponent } from './features/auth/singup/singin/singin.component';
 import { SingupComponent } from './features/auth/singup/singup.component';
 import { FormContainerComponent } from './features/auth/form-container/form-container.component';
 import { InviteButtonComponent } from './features/channels/invite-button/invite-button.component';
