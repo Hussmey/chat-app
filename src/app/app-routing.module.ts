@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'singin',loadChildren:() => import('./features/auth/singin/singin.module')
+    path: 'singin',loadChildren:() => import('./features/auth/singup/singin/singin.module')
     .then(m => m.SinginModule)
   },
   {
