@@ -10,6 +10,8 @@ import { InviteButtonComponent } from './features/channels/invite-button/invite-
 import { NewChannelComponent } from './features/channels/new-channel/new-channel.component';
 import { ChatPageComponent } from './features/chat/chat-page/chat-page.component';
 import { AngularFireModule} from '@angular/fire/compat'
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { AngularFireModule} from '@angular/fire/compat'
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp({}),
+    ReactiveFormsModule,
+    FormsModule,
  
   ],
   providers: [],
