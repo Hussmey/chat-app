@@ -10,6 +10,38 @@
         <div class="col-sm-12 text-center d-flex justify-content-center">
           <h3 class="text-title">تسجيل الدخول</h3>
         </div>
+        <div class="d-flex justify-content-center">
+          <div
+            *ngIf="isForget"
+            class="alert alert-success text-light alert-dismissible fade show alertMessageSendCode"
+            role="alert"
+          >
+            {{ alertMSG }}
+            <button
+              (click)="closeAlert()"
+              type="button"
+              class="btn-close"
+              data-dismiss="alertMessageSendCode"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div
+            *ngIf="isAlert"
+            class="alert alert-danger text-light alert-dismissible fade show alertMessage"
+            role="alert"
+          >
+            {{ alertMSG }}
+            <button
+              (click)="closeAlert()"
+              type="button"
+              class="btn-close"
+              data-dismiss="alertMessage"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
         <div class="col-md-6 py-2 text-end">
           <p class="text-center">!! خير عليكم في دردشتك</p>
           <div class="d-flex justify-content-center">
@@ -72,6 +104,7 @@
             </div>
             <div class="d-flex justify-content-end">
               <button
+                (click)="forgetPassword()"
                 class="btn-clas text-decoration-underline"
                 type="submit"
                 [disabled]="!formSingIn.get('email')!.valid"
@@ -79,11 +112,11 @@
                 ? مريوح ونسيت الرقم السري
               </button>
             </div>
-
+            <!-- routerLink="/chat-all" -->
             <button
               type="submit"
               class="btn btn-primary mt-3"
-              routerLink="/chat-all"
+              (click)="login()"
             >
               توكل هي
             </button>

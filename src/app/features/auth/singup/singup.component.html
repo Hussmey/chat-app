@@ -51,12 +51,19 @@
               <label for="exampleInputEmail1" class="form-label text-end">
                 : إميلك ياطييييب / والا طيبة</label
               >
+              <div class="col12">
+                <span
+                  *ngIf="formSingIn.get('email')?.invalid && formSingIn.get('email')?.['touched']"
+                  class="text-danger px-2"
+                  >دخل ايميلك صح يادعوة</span
+                >
+              </div>
               <input
                 type="email"
                 class="form-control text-end input-css"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                required
+                formControlName="email"
               />
               <div class="invalid-feedback">وييييين بيها ت دخل إميلك</div>
               <div id="emailHelp" class="form-text mt-2">
@@ -67,14 +74,28 @@
               <label for="exampleInputPassword1" class="form-label"
                 >الرقم السري</label
               >
+              <div class="col12">
+                <span
+                  *ngIf="formSingIn.get('password')?.invalid && formSingIn.get('password')?.['touched']"
+                  class="text-danger px-2"
+                  >لحظة لحظة تاكد من الرقم السري</span
+                >
+              </div>
               <input
                 type="password"
                 class="form-control text-end input-css"
                 id="exampleInputPassword1"
+                formControlName="password"
               />
             </div>
 
-            <button type="submit" class="btn btn-primary">توكل هي</button>
+            <button
+              (click)="singupWithemail()"
+              type="submit"
+              class="btn btn-primary"
+            >
+              توكل هي
+            </button>
           </form>
         </div>
       </div>

@@ -10,6 +10,8 @@ import { NewChannelComponent } from './features/channels/new-channel/new-channel
 import { ChatPageComponent } from './features/chat/chat-page/chat-page.component';
 import { AngularFireModule} from '@angular/fire/compat'
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 
@@ -26,7 +28,8 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp({}),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
  

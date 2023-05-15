@@ -106,6 +106,16 @@
 .btn-clas{
   border: none !important;
 }
+.alertMessage{
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 14px;
+}
+.alertMessageSendCode{
+  background-color: rgb(28, 167, 0);
+  border: 1px solid black;
+  border-radius: 14px;
+}
   @media (max-width: 991.98px) {
  
   }
