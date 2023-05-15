@@ -21,6 +21,11 @@ sinupWithEmailAndPassword(params: SingIn){
   forgetPasswordFromFirebase(email: string): Observable<void>{
     return from(this.authfair.sendPasswordResetEmail(email));
   }
+
+  public signOut(): Promise<any> {
+    return this.authfair.signOut();
+  }
+  
 }
 
 type SingIn = {
