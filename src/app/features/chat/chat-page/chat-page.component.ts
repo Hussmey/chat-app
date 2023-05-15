@@ -16,7 +16,7 @@ export class ChatPageComponent {
   singOutFromChat(){
     this.auth.signOut().then(() => {
       this.router.navigate(['/singin']);
-      console.log('Déconnexion réussie');
+      console.log('logout good');
     });
 
     console.log("go out");
