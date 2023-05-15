@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SinginComponent } from './features/auth/singin/singin.component';
 import { HttpClientModule} from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -27,6 +28,7 @@ import { HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
