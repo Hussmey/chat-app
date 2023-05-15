@@ -13,6 +13,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SinginComponent } from './features/auth/singin/singin.component';
+import { HttpClientModule} from '@angular/common/http';
 
 
 
@@ -31,7 +32,7 @@ import { SinginComponent } from './features/auth/singin/singin.component';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
- 
+    HttpClientModule,
  
   ],
   providers: [],
