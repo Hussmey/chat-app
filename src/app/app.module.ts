@@ -12,18 +12,17 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { SinginComponent } from './features/auth/singin/singin.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
-    // SinginComponent,
-    // SingupComponent,
-    // FormContainerComponent,
-    // InviteButtonComponent,
-    // NewChannelComponent,
-    // ChatPageComponent
+    AppComponent,
+    SingupComponent,
+    SinginComponent,
+    ChatPageComponent
+
   ],
   imports: [
     BrowserModule,
