@@ -21,6 +21,7 @@ export const createStreamUser = functions.https.onRequest((request, response) =>
             try {
                 await serverStreamClient.upsertUser({
                     id: user.id,
+                    name: user.displayName,
                     email: user.email
                 })
                 response.status(200).send({message : 'User created'});
