@@ -17,6 +17,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -37,6 +38,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

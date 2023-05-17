@@ -11,7 +11,10 @@ export const defaultEnvironment = {
   },
   production: false,
   
-  apiUrlFire: 'https://us-central1-chat-app-104fc.cloudfunctions.net'
+  apiUrlFire: 'https://us-central1-chat-app-104fc.cloudfunctions.net',
+  stream: {
+    key:'asc2smrp6x38'
+  }
 };
 
 

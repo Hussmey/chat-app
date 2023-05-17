@@ -1,15 +1,21 @@
-<div class="container">
+<div class="container" *ngIf="chatIsReady$ | async; else unavailable">
   <button (click)="singOutFromChat()">logout</button>
-  <div class="row">
+  <div class="row chat">
     <div class="col-md-6 bg-danger">
       <div class="container" *ngIf="auth.isLoggedIn$ | async as user">
         <span>User {{ user?.displayName }} is logged in</span>
       </div>
 
-      <h2>left</h2>
+      <p>chat is working</p>
     </div>
     <div class="col-md-6" style="height: 200px; background: blue">
       <h2>right</h2>
     </div>
   </div>
 </div>
+
+<ng-template #unavailable>
+  <div>
+    <p>chat is empty</p>
+  </div>
+</ng-template>

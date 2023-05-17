@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, forkJoin, from, Observable, of, switchMap } from 'rxjs';
+import { BehaviorSubject, forkJoin, from, Observable, of, pluck, switchMap } from 'rxjs';
 import { authState, Auth, createUserWithEmailAndPassword,signInWithEmailAndPassword, user } from '@angular/fire/auth'
 import { SinginCredentials, SingupCredentials } from './auth.modal';
 import { updateProfile } from 'firebase/auth';
@@ -19,11 +19,17 @@ export class AuthenticationService {
   constructor(private auth:Auth, private http:HttpClient) { }
 
 
-  // getUsers({displayName}: UserFirstName){
-  //  return from()
-  // }
+  getStreamToken(){
+    return this.http.post<{ token: string }>(`${environment.apiUrlFire}/createStreamToken`,{
+      user: this.getCurrentUser()
+    }).pipe(pluck('token'))
+  }
+
+  getCurrentUser() {
+    return this.auth.currentUser!;
+  }
+
   singin({email, password}: SinginCredentials){
-    // this.authState.next(crdentials);
      return from(signInWithEmailAndPassword(this.auth, email,password))
   }
 
@@ -40,9 +46,7 @@ sinup({email, password, displayName}: SingupCredentials){
 
 }
  
-getCurrentUser() {
-  return this.auth.currentUser!;
-}
+
 
   public signOut(){
     // const user = this.auth.currentUser;
