@@ -10,6 +10,8 @@ export const defaultEnvironment = {
     measurementId: "G-N8NLFRE2F5"
   },
   production: false,
+  
+  apiUrlFire: 'https://us-central1-chat-app-104fc.cloudfunctions.net'
 };
 
 

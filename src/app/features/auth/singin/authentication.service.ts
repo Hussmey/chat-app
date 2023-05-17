@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, from, Observable, of, switchMap } from 'rxjs';
-import { authState, Auth, createUserWithEmailAndPassword, user } from '@angular/fire/auth'
+import { BehaviorSubject, forkJoin, from, Observable, of, switchMap } from 'rxjs';
+import { authState, Auth, createUserWithEmailAndPassword,signInWithEmailAndPassword, user } from '@angular/fire/auth'
 import { SinginCredentials, SingupCredentials } from './auth.modal';
-import { signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +16,7 @@ export class AuthenticationService {
 
   readonly isLoggedIn$ = authState(this.auth)
 
-  constructor(private auth:Auth) { }
+  constructor(private auth:Auth, private http:HttpClient) { }
 
 
   // getUsers({displayName}: UserFirstName){
@@ -26,7 +29,13 @@ export class AuthenticationService {
 
 sinup({email, password, displayName}: SingupCredentials){
   return from(createUserWithEmailAndPassword(this.auth, email, password,)).pipe(
-    switchMap(({user}) => updateProfile(user , {displayName}))
+    switchMap(({user}) => forkJoin([
+      updateProfile(user , {displayName}),
+      this.http.post(
+        `${environment.apiUrlFire}/createStreamUser`,
+        {user: {...user, displayName}}
+      )
+    ]))
   );
 
 }

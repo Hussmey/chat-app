@@ -1,7 +1,5 @@
-
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-
 const cors = require('cors')({origin: true});
 const StreamChat = require('stream-chat').StreamChat;
 
@@ -13,14 +11,14 @@ const serverStreamClient = StreamChat.getInstance(
 admin.initializeApp();
 
 export const createStreamUser = functions.https.onRequest((request, response) => {
-    cors(request, response,async ()=> {
+    cors(request, response,async () => {
         const { user } = request.body;
         if(!user){
-            throw new functions.https.HttpsError('failed-precondition', 'Bad request' )
+            throw new functions.https.HttpsError('failed-precondition', 'Bad request');
         } else {
             try {
                 await serverStreamClient.upsertUser({
-                    id: user.id,
+                    id: user.uid,
                     name: user.displayName,
                     email: user.email
                 })
