@@ -2,6 +2,10 @@
   <button (click)="singOutFromChat()">logout</button>
   <div class="row">
     <div class="col-md-6 bg-danger">
+      <div class="container" *ngIf="auth.isLoggedIn$ | async as user">
+        <span>User {{ user?.displayName }} is logged in</span>
+      </div>
+
       <h2>left</h2>
     </div>
     <div class="col-md-6" style="height: 200px; background: blue">

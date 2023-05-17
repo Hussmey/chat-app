@@ -9,17 +9,14 @@ import { AuthenticationService } from '../../auth/singin/authentication.service'
 })
 export class ChatPageComponent {
 
-  constructor(private router: Router, private auth:AuthenticationService) {
+  constructor(private router: Router, public auth:AuthenticationService, ) {
   }
 
-
-  singOutFromChat(){
-    this.auth.signOut().then(() => {
-      this.router.navigate(['/singin']);
-      console.log('logout good');
+  singOutFromChat() {
+    this.auth.signOut().subscribe({
+      next: () => this.router.navigate(['signin'])
     });
-
-    console.log("go out");
   }
+  
 
 }

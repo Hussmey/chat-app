@@ -21,16 +21,18 @@ export class SingupComponent implements OnInit{
   ngOnInit(): void {
     this.formSingIn = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
+      displayName: ['',Validators.required],
       password: ['', [Validators.required]]
     });
     console.log('singup work')
     this.show = false;
   }
+
+  
   singupWithemail(){
-    this.auth.sinupWithEmailAndPassword({
-      email: this.formSingIn.value.email,
-      password: this.formSingIn.value.password,
-    }).subscribe(() => {
+    this.auth.sinup(
+      this.formSingIn.value
+    ).subscribe(() => {
        this.router.navigate(['/singin']);
         console.log("got singin seccfocccly")
     }, (error:any)=> {

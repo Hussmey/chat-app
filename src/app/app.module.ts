@@ -15,6 +15,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SinginComponent } from './features/auth/singin/singin.component';
 import { HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 
 
@@ -30,12 +32,11 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
- 
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
   providers: [],
   bootstrap: [AppComponent]

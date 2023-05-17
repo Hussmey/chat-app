@@ -45,18 +45,18 @@ export class SinginComponent implements OnInit {
 
   }
 
-  forgetPassword(){
-this.isForget = true;
-this.auth.forgetPasswordFromFirebase(this.formSingIn.value.email).subscribe(()=>{
-  this.isForget = false;
-  this.alertMSGf(" شوف ايميلك بعتنالك الرقكم السري" );
-}, (error:any)=> {
-  this.alertMSGf("فيه مشكلة في السيرفر دور وعد انت وياه" );
-  this.isForget = false;
-  console.log('any error')
-})
+//   forgetPassword(){
+// this.isForget = true;
+// this.auth.forgetPasswordFromFirebase(this.formSingIn.value.email).subscribe(()=>{
+//   this.isForget = false;
+//   this.alertMSGf(" شوف ايميلك بعتنالك الرقكم السري" );
+// }, (error:any)=> {
+//   this.alertMSGf("فيه مشكلة في السيرفر دور وعد انت وياه" );
+//   this.isForget = false;
+//   console.log('any error')
+// })
 
-  }
+//   }
   showDiv() {
     this.show = true;
     setTimeout(() => {

@@ -36,11 +36,19 @@
               <label for="exampleInputName" class="form-label text-end">
                 : حط اسمك تربح</label
               >
+              <div class="col12">
+                <span
+                  *ngIf="formSingIn.get('displayName')?.invalid && formSingIn.get('displayName')?.['touched']"
+                  class="text-danger px-2"
+                  >دخل اسمك صح يادعوة</span
+                >
+              </div>
               <input
-                type="name"
+                type="text"
                 class="form-control text-end input-css"
                 id="exampleInputName"
                 aria-describedby="nameHelp"
+                formControlName="displayName"
                 required
               />
               <div id="nameHelp" class="form-text mt-2">
